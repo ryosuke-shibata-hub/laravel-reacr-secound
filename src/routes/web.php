@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::prefix('post')->controller(PostController::class)->group(function(){
+    Route::get('/', 'index')->name('post.index');
+    Route::get('/create', 'create')->name('post.create');
+    Route::post('/', 'store')->name('post.store');
+    Route::get('/{post}', 'show')->name('post.show');
+    Route::get('/{post}/edit', 'edit')->name('post.edit');
+    Route::put('/{post}', 'update')->name('post.update');
+    Route::delete('/{post}', 'destroy')->name('post.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
