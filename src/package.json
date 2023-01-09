@@ -24,6 +24,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "bootstrap": "^5.2.3",
         "postcss-import": "^15.1.0"
     }
 }

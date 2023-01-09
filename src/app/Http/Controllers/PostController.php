@@ -11,10 +11,11 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::paginate(5);
+        $posts = Post::orderBy('updated_at', 'desc')
+            ->paginate(10);
 
         return Inertia::render('Post/index', [
-            'title' => 'Laravel: vite + Interia + React で　CRUD サンプル',
+            'title' => 'ToDoアプリ',
             'posts' => $posts,
             'message' => session('message'),
         ]);
@@ -22,7 +23,7 @@ class PostController extends Controller
 
     public function create()
     {
-        return Inertia::render('Post/Create');
+        return Inertia::render('Post/create');
     }
 
     public function store(PostRequest $request)
@@ -30,7 +31,7 @@ class PostController extends Controller
         $post = new Post();
         $post->title = $request->title;
         $post->body = $request->body;
-        $post->save;
+        $post->save();
 
         return redirect()->route('post.index')
             ->with(['message' => '登録が完了しました']);

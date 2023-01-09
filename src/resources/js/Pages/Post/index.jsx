@@ -21,21 +21,21 @@ export default function index(props) {
 
     return (
         <div className="p-5">
-            <h1 className="font-bold">{props.title}</h1>
+            <h1 className="pt-10 pb-10 text-4xl font-bold text-center text-gray-500 border-b-4">{props.title}</h1>
             {
                 message &&
                 <div id="message" className="p-3 mt-2 text-green-700 bg-green-100 rounded-lg">
                     {message}
                 </div>
             }
-            <div className="p-3 mb-2 text-right">
+            <div className="p-3 pt-10 mb-2 text-right">
                 <Link
                     className="px-4 py-2 mr-2 text-sm text-white bg-green-700 rounded-lg"
                     href={route('post.create')}>
                     + 追加する
                 </Link>
             </div>
-            <table className="w-full bg-gray-100">
+            <table className="w-full bg-white">
                 <thead className="bg-bulue-100">
                     <tr>
                         <th>ID</th>
@@ -69,7 +69,9 @@ export default function index(props) {
                     ))}
                 </tbody>
             </table>
-            <Pagination data={props.posts} />
+            <div>
+                <Pagination data={props.posts} />
+            </div>
         </div>
     )
 }
