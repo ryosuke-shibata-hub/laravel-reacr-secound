@@ -13,7 +13,11 @@ export default function Welcome(props) {
                     ) : (
                         <>
                             <Link href={route('post.index')} className="text-sm text-gray-700 underline dark:text-gray-500">
-                                Go To ToDo
+                                ToDo
+                            </Link>
+
+                            <Link href={route('preview.index')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">
+                                ImagePreview
                             </Link>
 
                             <Link href={route('login')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">

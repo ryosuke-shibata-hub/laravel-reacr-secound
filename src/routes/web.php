@@ -5,6 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ImagePrevew\ImagePreviewContoller;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,10 @@ Route::prefix('post')->controller(PostController::class)->group(function(){
     Route::get('/{post}/edit', 'edit')->name('post.edit');
     Route::put('/{post}', 'update')->name('post.update');
     Route::delete('/{post}', 'destroy')->name('post.destroy');
+});
+
+Route::prefix('image')->controller(ImagePreviewContoller::class)->group(function() {
+    Route::get('/preview', 'index')->name('preview.index');
 });
 
 Route::middleware('auth')->group(function () {
