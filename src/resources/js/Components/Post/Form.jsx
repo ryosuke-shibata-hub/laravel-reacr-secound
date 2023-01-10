@@ -41,6 +41,7 @@ export default function Form(props) {
         <div className='container w-3/4 mx-auto'>
             <div className='py-20 text-center'>
                 <h1 className='pb-20 text-4xl font-bold text-gray-600 border-b-4'>
+                    {/* typeによってタイトルを変更 */}
                     {props.type === 'create' && ('タスクの新規作成')}
                     {props.type === 'edit' && ('タスクの変更')}
                 </h1>

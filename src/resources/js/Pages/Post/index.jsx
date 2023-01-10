@@ -28,27 +28,40 @@ export default function index(props) {
                     {message}
                 </div>
             }
-            <div className="p-3 pt-10 mb-2 text-right">
-                <Link
-                    className="px-4 py-2 mr-2 text-sm text-white bg-green-700 rounded-lg"
-                    href={route('post.create')}>
-                    + 追加する
-                </Link>
+            <div className="flex justify-between">
+                <div className="p-3 pt-5 mb-2">
+                    <Link
+                        className="px-4 py-2 mr-2 text-sm text-white bg-blue-500 rounded-lg"
+                        href="/">
+                        戻る
+                    </Link>
+                </div>
+                <div className="p-3 pt-5 mb-2">
+                    <Link
+                        className="px-4 py-2 mr-2 text-sm text-white bg-green-700 rounded-lg"
+                        href={route('post.create')}>
+                        + 追加する
+                    </Link>
+                </div>
             </div>
+
             <table className="w-full bg-white">
                 <thead className="bg-bulue-100">
-                    <tr>
+                    <tr className="bg-green-300 border-2 border-gray-400">
                         <th>ID</th>
                         <th>タイトル</th>
+                        <th>内容</th>
                         <th>操作</th>
+                        <th>更新日時</th>
                     </tr>
                 </thead>
                 <tbody>
                     {props.posts.data.map(post => (
                         <tr key={post.id}>
-                            <td className="p-2 text-center border">{post.title}</td>
-                            <td className="p-2 text-center border">{post.body}</td>
-                            <td className="p-2 text-center border">
+                            <td className="p-2 text-center border-2 border-gray-400">{post.id}</td>
+                            <td className="p-2 text-center border-2 border-gray-400 w-75">{post.title}</td>
+                            <td className="p-2 text-center border-2 border-gray-400 w-96">{post.body}</td>
+                            <td className="p-2 text-center border-2 border-gray-400 w-96">
                                 <Link
                                     className="px-4 py-2 mr-2 text-sm text-white bg-gray-400 rounded-lg"
                                     href={route('post.show', { id: post.id })}>
@@ -65,6 +78,7 @@ export default function index(props) {
                                     削除
                                 </button>
                             </td>
+                            <td className="w-56 p-2 text-center border-2 border-gray-400 ">{Date(post.updated_at)}</td>
                         </tr>
                     ))}
                 </tbody>
