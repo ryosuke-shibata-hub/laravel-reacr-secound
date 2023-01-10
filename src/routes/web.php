@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImagePrevew\ImagePreviewContoller;
+use App\Http\Controllers\Chat\ChatController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,13 @@ Route::prefix('image')->controller(ImagePreviewContoller::class)->group(function
 });
 
 Route::middleware('auth')->group(function () {
+    Route::prefix('chat')->controller(ChatController::class)->group(function(){
+        Route::get('/', 'index')->name('chat.index');
+        Route::get('/list', 'list')->name('chat.list');
+        Route::post('/', 'store')->name('chat.store');
+    });
+
+
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
