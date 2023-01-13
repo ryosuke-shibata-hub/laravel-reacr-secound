@@ -12,11 +12,12 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ChatMessageCreated
+class ChatMessageCreated implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     private $chat_message;
+
     /**
      * Create a new event instance.
      *
@@ -37,6 +38,11 @@ class ChatMessageCreated
         return new PrivateChannel('chat-message');
     }
 
+    /**
+     * Get the data to broadcast.
+     *
+     * @return array
+     */
     public function broadcastWith()
     {
         return [

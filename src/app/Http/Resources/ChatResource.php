@@ -21,6 +21,6 @@ class ChatResource extends JsonResource
             'user' => [
                 'name' => $this->user->name,
             ]
-            ];
+        ];
     }
 }

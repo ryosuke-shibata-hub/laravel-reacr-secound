@@ -34,17 +34,21 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     enabledTransports: ['ws', 'wss'],
 // });
 
-//Ably用
 // Ably
 import Echo from 'laravel-echo';
 import Pusher from 'pusher-js';
 
 window.Pusher = Pusher;
+
 window.Echo = new Echo({
-    broadcater: 'pusher',
+    broadcaster: 'pusher',
     key: import.meta.env.VITE_ABLY_PUBLIC_KEY,
-    wsHost: 'realtime-pusher.ably.io',
+    wsHost: 'realtime-chat.ably.io',
     wsPort: 443,
     disableStats: true,
     encrypted: true,
+    forceTLS: false,
+    cluster: 'mt-1',
+    enabledTransports: ['ws', 'wss'],
+    forceTLS: (import.meta.env.VITE_PUSHER_SCHEME ?? 'https') === 'https',
 });

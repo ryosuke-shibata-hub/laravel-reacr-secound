@@ -7,12 +7,30 @@ export default function Welcome(props) {
             <div className="relative flex justify-center min-h-screen bg-gray-100 items-top dark:bg-gray-900 sm:items-center sm:pt-0">
                 <div className="fixed top-0 right-0 px-6 py-4 sm:block">
                     {props.auth.user ? (
-                        <Link href={route('dashboard')} className="text-sm text-gray-700 underline dark:text-gray-500">
-                            Dashboard
-                        </Link>
+                        <>
+                            <Link href={route('dashboard')} className="text-sm text-gray-700 underline dark:text-gray-500">
+                                Dashboard
+                            </Link>
+                            <Link href={route('chat.index')} className="text-sm text-gray-700 underline dark:text-gray-500">
+                                Chat
+                            </Link>
+
+                            <Link href={route('post.index')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">
+                                ToDo
+                            </Link>
+
+                            <Link href={route('preview.index')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">
+                                ImagePreview
+                            </Link>
+                        </>
                     ) : (
                         <>
-                            <Link href={route('post.index')} className="text-sm text-gray-700 underline dark:text-gray-500">
+
+                            <Link href={route('chat.index')} className="text-sm text-gray-700 underline dark:text-gray-500">
+                                Chat
+                            </Link>
+
+                            <Link href={route('post.index')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">
                                 ToDo
                             </Link>
 
