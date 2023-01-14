@@ -26,6 +26,9 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@emotion/react": "^11.10.5",
+        "@emotion/styled": "^11.10.5",
+        "@mui/material": "^5.11.4",
         "bootstrap": "^5.2.3",
         "postcss-import": "^15.1.0"
     }

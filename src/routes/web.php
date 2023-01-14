@@ -7,6 +7,7 @@ use Inertia\Inertia;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ImagePrevew\ImagePreviewContoller;
 use App\Http\Controllers\Chat\ChatController;
+use App\Http\Controllers\Calendar\CalendarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -53,6 +54,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/', 'store')->name('chat.store');
     });
 
+    Route::prefix('calendar')->controller(CalendarController::class)->group(function() {
+        Route::get('/', 'index')->name('calendar.index');
+    });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
