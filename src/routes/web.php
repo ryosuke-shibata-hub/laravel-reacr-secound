@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
 
     Route::prefix('calendar')->controller(CalendarController::class)->group(function() {
         Route::get('/', 'index')->name('calendar.index');
+
     });
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
