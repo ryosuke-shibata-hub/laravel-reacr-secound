@@ -179,6 +179,23 @@ export default function index() {
 
     console.log(editData);
 
+    //削除用
+    const deletePost = async (e) => {
+        //削除機能
+        await axios
+            .post('/api/delete', {
+                id: editData.id
+            })
+            .then((res) => {
+                this.setState({
+                    posts: res.posts
+                });
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
     return (
         <Fragment>
             <div className="calender-header">
@@ -267,6 +284,7 @@ export default function index() {
                     <TextField margin="dense" id="sch_contents" name="sch_contents" label="内容" type="text" fullWidth variant="standard" value={editData.sch_contents} onChange={editChange} />
                 </DialogContent>
                 <DialogActions>
+                    <Button href="/calendar" onClick={deletePost}>削除</Button>
                     <Button onClick={editHandleClose}>キャンセル</Button>
                     <Button href="/calendar" onClick={updateSchedule}>更新</Button>
                 </DialogActions>
