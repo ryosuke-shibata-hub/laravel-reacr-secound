@@ -19,7 +19,7 @@ main{
 }
 .calender-nav{
     display: flex;
-    justify-content: end;
+    /* justify-content: end; */
     font-size:1.5rem;
 }
 .month_btn{
