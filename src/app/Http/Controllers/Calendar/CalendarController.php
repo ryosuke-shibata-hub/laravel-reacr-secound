@@ -11,6 +11,8 @@ class CalendarController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Calendar/index');
+        return Inertia::render('Calendar/index',[
+            'title' => 'カレンダーアプリ'
+        ]);
     }
 }

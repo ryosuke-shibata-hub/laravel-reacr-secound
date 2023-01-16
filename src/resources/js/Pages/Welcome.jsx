@@ -11,7 +11,10 @@ export default function Welcome(props) {
                             <Link href={route('dashboard')} className="text-sm text-gray-700 underline dark:text-gray-500">
                                 Dashboard
                             </Link>
-                            <Link href={route('chat.index')} className="text-sm text-gray-700 underline dark:text-gray-500">
+                            <Link href={route('calendar.index')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">
+                                calendar
+                            </Link>
+                            <Link href={route('chat.index')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">
                                 Chat
                             </Link>
 
@@ -25,8 +28,10 @@ export default function Welcome(props) {
                         </>
                     ) : (
                         <>
-
-                            <Link href={route('chat.index')} className="text-sm text-gray-700 underline dark:text-gray-500">
+                            <Link href={route('calendar.index')} className="text-sm text-gray-700 underline dark:text-gray-500">
+                                calendar
+                            </Link>
+                            <Link href={route('chat.index')} className="ml-4 text-sm text-gray-700 underline dark:text-gray-500">
                                 Chat
                             </Link>
 
